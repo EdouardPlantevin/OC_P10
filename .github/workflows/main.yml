@@ -34,3 +34,34 @@ jobs:
           name: jacoco-report
           path: back/target/site/jacoco/
           retention-days: 1 # Le rapport sera conservé pendant 1 jour après bye bye
+
+
+  frontend-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./front
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+          cache: 'npm'
+          cache-dependency-path: front/package-lock.json
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Test and Coverage
+        run: npx ng test --watch=false --browsers=ChromeHeadless --code-coverage
+
+      - name: Upload Frontend Coverage Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-coverage-report
+          path: front/coverage/bobapp/
+          retention-days: 1 # Le rapport sera conservé pendant 1 jour après bye bye
