@@ -1,0 +1,21 @@
+name: CI/CD BobApp Initiale
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test-initialisation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      - name: Test de script
+        run: echo "Salut Bob ! La pipeline GitHub Actions est active"
+      
+      - name: Vérification des fichiers
+        run: ls -R
