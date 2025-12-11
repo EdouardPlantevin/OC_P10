@@ -95,6 +95,14 @@ jobs:
           name: frontend-coverage-report
           path: front/coverage/bobapp
 
+
+      - name: Debug - Afficher les fichiers
+        run: |
+          echo "--- Contenu du dossier BACK ---"
+          ls -R back/target
+          echo "--- Contenu du dossier FRONT ---"
+          ls -R front/coverage
+
       - name: Build classes for Sonar
         run: |
           cd back
