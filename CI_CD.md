@@ -90,4 +90,3 @@ Nous avons croisé les métriques techniques avec les retours des utilisateurs (
 * **Analyse Technique :** Avec seulement **16.7%** de couverture, toute modification du code risque de casser une fonctionnalité existante sans qu'on s'en aperçoive.
 * **Action Requise :** Mise en place d'une campagne de tests unitaires (JUnit) pour remonter progressivement la couverture vers les 80% exigés par le KPI.
 
-#modif
